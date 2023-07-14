@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>代码随想录算法训练营day3 | 203.移除链表元素 707.设计链表 206.反转链表 | jhhuangのblog</title><meta name="author" content="jhhuang"><meta name="copyright" content="jhhuang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="链表理论基础 单链表 链表是一种通过指针串联在一起的线性结构，每一个节点由两部分组成，一个是数据域，一个是指针域（指向下一个节点），最后一个指针域指向NULL（空节点）。 双链表 单链表中的指针域只能指向节点的下一个节点。 双链表：每一个节点有两个指针域，一个指向下一个节点，一个指向上一个节点。 双链表 既可以向前查询也可以向后查询。 链表的存储方式 链表不是像指针一样在内存中是连续分布的，是散落">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码随想录算法训练营day3 | 203.移除链表元素 707.设计链表 206.反转链表">
+<meta property="og:url" content="http://example.com/2023/07/14/day3/index.html">
+<meta property="og:site_name" content="jhhuangのblog">
+<meta property="og:description" content="链表理论基础 单链表 链表是一种通过指针串联在一起的线性结构，每一个节点由两部分组成，一个是数据域，一个是指针域（指向下一个节点），最后一个指针域指向NULL（空节点）。 双链表 单链表中的指针域只能指向节点的下一个节点。 双链表：每一个节点有两个指针域，一个指向下一个节点，一个指向上一个节点。 双链表 既可以向前查询也可以向后查询。 链表的存储方式 链表不是像指针一样在内存中是连续分布的，是散落">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/bigstar.jpg">
+<meta property="article:published_time" content="2023-07-14T08:02:06.000Z">
+<meta property="article:modified_time" content="2023-07-14T13:44:49.473Z">
+<meta property="article:author" content="jhhuang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/bigstar.jpg"><link rel="shortcut icon" href="/img/yelloduck.jpg"><link rel="canonical" href="http://example.com/2023/07/14/day3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '代码随想录算法训练营day3 | 203.移除链表元素 707.设计链表 206.反转链表',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-14 21:44:49'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/bigstar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/sunset.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="jhhuangのblog"><span class="site-name">jhhuangのblog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">代码随想录算法训练营day3 | 203.移除链表元素 707.设计链表 206.反转链表</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-14T08:02:06.000Z" title="发表于 2023-07-14 16:02:06">2023-07-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-14T13:44:49.473Z" title="更新于 2023-07-14 21:44:49">2023-07-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">刷题笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="代码随想录算法训练营day3 | 203.移除链表元素 707.设计链表 206.反转链表"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="%E9%93%BE%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80" tabindex="-1">链表理论基础</h1>
+<h2 id="%E5%8D%95%E9%93%BE%E8%A1%A8" tabindex="-1">单链表</h2>
+<p>链表是一种通过指针串联在一起的线性结构，每一个节点由两部分组成，一个是数据域，一个是指针域（指向下一个节点），最后一个指针域指向NULL（空节点）。</p>
+<h2 id="%E5%8F%8C%E9%93%BE%E8%A1%A8" tabindex="-1">双链表</h2>
+<p>单链表中的指针域只能指向节点的下一个节点。</p>
+<p>双链表：每一个节点有两个指针域，一个指向下一个节点，一个指向上一个节点。</p>
+<p>双链表 既可以向前查询也可以向后查询。</p>
+<h2 id="%E9%93%BE%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F" tabindex="-1">链表的存储方式</h2>
+<p>链表不是像指针一样在内存中是连续分布的，是散落分布的，分配机制取决于操作系统的内存管理。</p>
+<h2 id="%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8" tabindex="-1">循环链表</h2>
+<p>循环链表，顾名思义，就是链表首尾相连。</p>
+<p>循环链表可以用来解决约瑟夫环问题。</p>
+<h2 id="%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90" tabindex="-1">性能分析</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">插入/删除（时间复杂度</th>
+<th style="text-align:center">查询（时间复杂度）</th>
+<th style="text-align:center">适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">数组</td>
+<td style="text-align:center">O(n)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">数据量固定，频繁查找，较少增删</td>
+</tr>
+<tr>
+<td style="text-align:center">链表</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">O(n)</td>
+<td style="text-align:center">数据量不定，较少查找，频繁增删</td>
+</tr>
+</tbody>
+</table>
+<h1 id="%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0day3" tabindex="-1">刷题笔记day3</h1>
+<h2 id="203.%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0" tabindex="-1">203.移除链表元素</h2>
+<p>文章讲解：<a target="_blank" rel="noopener" href="https://programmercarl.com/0203.%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0.html">代码随想录</a><br>
+是否自己做出来通过全部用例：否</p>
+<h3 id="%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE%2F%E7%8A%AF%E7%9A%84%E9%94%99%E8%AF%AF" tabindex="-1">遇到的困难/犯的错误</h3>
+<pre><code>while (temp != NULL &amp;&amp; temp-&gt;val == val)
+</code></pre>
+<p>temp != NULL应该放在前面，不然NULL-&gt;val会报错。<br>
+一定要delete掉要删除的节点。<br>
+在原链表进行删除需要两个while循环，但是如果造一个虚拟头节点可以只需要一次while循环。<br>
+动态分配的内存指针同样要用动态分配的内存指针才能去赋值。</p>
+<h3 id="%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81" tabindex="-1">自己写的代码</h3>
+<p>看了题解后用虚拟头节点法写的代码：</p>
+<pre><code>class Solution &#123;
+public:
+    ListNode* removeElements(ListNode* head, int val) &#123;
+        if (head == NULL) &#123;
+            return NULL;
+        &#125;
+        ListNode* virhead = new ListNode(0);
+        virhead-&gt;next = head;
+        ListNode* cur = virhead;
+        while (cur-&gt;next != NULL) &#123;
+            if (cur-&gt;next-&gt;val == val) &#123;
+                ListNode* temp = cur-&gt;next;
+                cur-&gt;next = cur-&gt;next-&gt;next;
+                delete temp;
+            &#125;
+            else &#123;
+                cur = cur-&gt;next;
+            &#125;
+        &#125;
+        return virhead-&gt;next;
+    &#125;
+&#125;;
+</code></pre>
+<h3 id="%E7%9C%8B%E4%BA%86%E9%A2%98%E8%A7%A3%E5%90%8E%E7%9A%84%E6%94%B6%E8%8E%B7" tabindex="-1">看了题解后的收获</h3>
+<p>在原链表进行删除需要两个while循环，但是如果造一个虚拟头节点可以只需要一次while循环。<br>
+动态分配的内存指针同样要用动态分配的内存指针才能去赋值。</p>
+<h2 id="707.%E8%AE%BE%E8%AE%A1%E9%93%BE%E8%A1%A8" tabindex="-1">707.设计链表</h2>
+<p>文章讲解：<a target="_blank" rel="noopener" href="https://programmercarl.com/0707.%E8%AE%BE%E8%AE%A1%E9%93%BE%E8%A1%A8.html">代码随想录</a><br>
+是否自己做出来通过全部用例：是</p>
+<h3 id="%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE%2F%E7%8A%AF%E7%9A%84%E9%94%99%E8%AF%AF-1" tabindex="-1">遇到的困难/犯的错误</h3>
+<p>选择了直接用原链表进行操作，碰到了很多坑。主要是_size在计算过程中的错误。按题意，new了一个之后_size=0，但是实际已经=1，所以导致添加元素删减元素时都要加上一些条件判断。</p>
+<h3 id="%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81-1" tabindex="-1">自己写的代码</h3>
+<p>研究了大概一个多小时写出来的代码：</p>
+<pre><code>class MyLinkedList &#123;
+public:
+    struct LinkedNode &#123;
+        int val;
+        LinkedNode* next;
+        LinkedNode(int val): val(val), next(nullptr)&#123;&#125;
+    &#125;;
+
+    MyLinkedList() &#123;
+        _dummyhead = new LinkedNode(0);
+        _size = 0;
+    &#125;
+    
+    int get(int index) &#123;
+        if (index &lt; 0 || index &gt; _size - 1 || _size == 0) &#123;
+            return -1;
+        &#125;
+        LinkedNode* cur = _dummyhead;
+        if (index == 0) &#123;
+            return cur-&gt;val;
+        &#125;
+        else &#123;
+            for (int i = 1; i &lt;= index; ++i) &#123;
+                cur = cur-&gt;next;
+            &#125;
+        &#125;
+
+        return cur-&gt;val;
+    &#125;
+
+    void addAtHead(int val) &#123;
+        LinkedNode* newhead = new LinkedNode(val);
+        if (_size == 0) &#123;
+            _dummyhead = newhead;
+        &#125;
+        else &#123;
+            newhead-&gt;next = _dummyhead;
+            _dummyhead = newhead;
+        &#125;
+        ++_size;
+    &#125;
+    
+    void addAtTail(int val) &#123;
+        LinkedNode* newtail = new LinkedNode(val);
+        if (_size == 0) &#123;
+            _dummyhead = newtail;
+        &#125;
+        else &#123;
+            LinkedNode* cur = _dummyhead;
+            while (cur-&gt;next != NULL) &#123;
+                cur = cur-&gt;next;
+            &#125;
+            cur-&gt;next = newtail;
+        &#125;
+        ++_size;
+    &#125;
+    
+    void addAtIndex(int index, int val) &#123;
+        if (index &lt; 0) &#123;
+            index = 0;
+        &#125;
+        if (index &gt; _size) &#123;
+            return;
+        &#125;
+        if (index == 0) &#123;
+            addAtHead(val);
+        &#125;
+        else &#123;
+            int counts = 0;
+            LinkedNode* cur = _dummyhead;
+            while (cur-&gt;next != NULL)
+            &#123;
+                ++counts;
+                if (counts == index) &#123;
+                    LinkedNode* newnode = new LinkedNode(val);
+                    newnode-&gt;next = cur-&gt;next;
+                    cur-&gt;next = newnode;
+                    ++_size;
+                    return;
+                &#125;
+                cur = cur-&gt;next;
+            &#125;
+            if (index &gt; counts + 1) &#123;
+                return;
+            &#125;
+            if (index == counts + 1) &#123;
+                addAtTail(val);
+            &#125;
+        &#125;
+
+    &#125;
+    
+    void deleteAtIndex(int index) &#123;
+        if (index &lt; 0 || index &gt; _size - 1)
+        &#123;
+            return;
+        &#125;
+        if (index == 0) &#123;
+            LinkedNode* temp = _dummyhead;
+            _dummyhead = _dummyhead-&gt;next;
+            delete temp;
+        &#125;
+        else &#123;
+            LinkedNode* cur = _dummyhead;
+            int counts = 0;
+            while (cur-&gt;next != NULL) &#123;
+                ++counts;
+                if (counts == index) &#123;
+                    LinkedNode* temp = cur-&gt;next;
+                    cur-&gt;next = cur-&gt;next-&gt;next; 
+                    break;
+                &#125;
+                cur = cur-&gt;next;
+            &#125;
+        &#125;
+        --_size;
+    &#125;
+
+    private:
+        int _size;
+        LinkedNode* _dummyhead;
+&#125;;
+</code></pre>
+<h3 id="%E7%9C%8B%E4%BA%86%E9%A2%98%E8%A7%A3%E5%90%8E%E7%9A%84%E6%94%B6%E8%8E%B7-1" tabindex="-1">看了题解后的收获</h3>
+<p>如果使用虚拟头结点真的简单很多！主要是更容易符合题意。如果题意new后的初始_size = 1，那应该会简单很多。</p>
+<h2 id="%E9%A2%98%E7%9B%AE" tabindex="-1">题目</h2>
+<p>文章讲解：<a href="">代码随想录</a><br>
+是否自己做出来通过全部用例：否</p>
+<h3 id="%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE%2F%E7%8A%AF%E7%9A%84%E9%94%99%E8%AF%AF-2" tabindex="-1">遇到的困难/犯的错误</h3>
+<p><code>while (temp-&gt;next != NULL)</code><br>
+判断条件有问题。</p>
+<h3 id="%E7%9C%8B%E4%BA%86%E9%A2%98%E8%A7%A3%E5%90%8E%E7%9A%84%E6%94%B6%E8%8E%B7-2" tabindex="-1">看了题解后的收获</h3>
+<p>掌握了本题的双指针解法。</p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">jhhuang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/07/14/day3/">http://example.com/2023/07/14/day3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">jhhuangのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/bigstar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/07/13/day2/" title="代码随想录算法训练营day2 | 977. 有序数组的平方 209.长度最小的子数组 59.螺旋矩阵II"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">代码随想录算法训练营day2 | 977. 有序数组的平方 209.长度最小的子数组 59.螺旋矩阵II</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/bigstar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">jhhuang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">链表理论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-number">1.1.</span> <span class="toc-text">单链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="toc-number">1.2.</span> <span class="toc-text">双链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">链表的存储方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="toc-number">1.4.</span> <span class="toc-text">循环链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">1.5.</span> <span class="toc-text">性能分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0day3"><span class="toc-number">2.</span> <span class="toc-text">刷题笔记day3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#203.%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0"><span class="toc-number">2.1.</span> <span class="toc-text">203.移除链表元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE/%E7%8A%AF%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-number">2.1.1.</span> <span class="toc-text">遇到的困难&#x2F;犯的错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.2.</span> <span class="toc-text">自己写的代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%8B%E4%BA%86%E9%A2%98%E8%A7%A3%E5%90%8E%E7%9A%84%E6%94%B6%E8%8E%B7"><span class="toc-number">2.1.3.</span> <span class="toc-text">看了题解后的收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#707.%E8%AE%BE%E8%AE%A1%E9%93%BE%E8%A1%A8"><span class="toc-number">2.2.</span> <span class="toc-text">707.设计链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE/%E7%8A%AF%E7%9A%84%E9%94%99%E8%AF%AF-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">遇到的困难&#x2F;犯的错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">自己写的代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%8B%E4%BA%86%E9%A2%98%E8%A7%A3%E5%90%8E%E7%9A%84%E6%94%B6%E8%8E%B7-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">看了题解后的收获</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">2.3.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E5%9B%B0%E9%9A%BE/%E7%8A%AF%E7%9A%84%E9%94%99%E8%AF%AF-2"><span class="toc-number">2.3.1.</span> <span class="toc-text">遇到的困难&#x2F;犯的错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%8B%E4%BA%86%E9%A2%98%E8%A7%A3%E5%90%8E%E7%9A%84%E6%94%B6%E8%8E%B7-2"><span class="toc-number">2.3.2.</span> <span class="toc-text">看了题解后的收获</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/14/day3/" title="代码随想录算法训练营day3 | 203.移除链表元素 707.设计链表 206.反转链表">代码随想录算法训练营day3 | 203.移除链表元素 707.设计链表 206.反转链表</a><time datetime="2023-07-14T08:02:06.000Z" title="发表于 2023-07-14 16:02:06">2023-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/13/day2/" title="代码随想录算法训练营day2 | 977. 有序数组的平方 209.长度最小的子数组 59.螺旋矩阵II">代码随想录算法训练营day2 | 977. 有序数组的平方 209.长度最小的子数组 59.螺旋矩阵II</a><time datetime="2023-07-12T22:58:49.000Z" title="发表于 2023-07-13 06:58:49">2023-07-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/12/day1/" title="代码随想录算法训练营day1 | 704.二分查找 27.移动元素">代码随想录算法训练营day1 | 704.二分查找 27.移动元素</a><time datetime="2023-07-12T13:30:24.000Z" title="发表于 2023-07-12 21:30:24">2023-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/11/internet/" title="网络编程">网络编程</a><time datetime="2023-07-11T02:38:53.000Z" title="发表于 2023-07-11 10:38:53">2023-07-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/10/some-ip/" title="SOME/IP学习笔记">SOME/IP学习笔记</a><time datetime="2023-07-10T15:37:13.000Z" title="发表于 2023-07-10 23:37:13">2023-07-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By jhhuang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
