@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C++八股 | jhhuangのblog</title><meta name="author" content="jhhuang"><meta name="copyright" content="jhhuang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="carl哥推荐的C++后端速成路线&#x2F;简历写法  熟悉C&#x2F;C++，熟练使用C的指针应用及内存管理，C的封装继承多态，STL常用容器，C11常用特性(智能指针等) ，了解 Python，Gtest等。 熟悉常用设计模式(单例模式，工厂模式等) 熟悉Linux下vim开发环境，了解网络编程，IO多路复用，epoll等等。 熟悉OSI五层网络模型，熟悉TCP&#x2F;IP,UDP,HTTP&#x2F;HTTPS,DNS等网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++八股">
+<meta property="og:url" content="http://example.com/2023/07/08/eightpart/index.html">
+<meta property="og:site_name" content="jhhuangのblog">
+<meta property="og:description" content="carl哥推荐的C++后端速成路线&#x2F;简历写法  熟悉C&#x2F;C++，熟练使用C的指针应用及内存管理，C的封装继承多态，STL常用容器，C11常用特性(智能指针等) ，了解 Python，Gtest等。 熟悉常用设计模式(单例模式，工厂模式等) 熟悉Linux下vim开发环境，了解网络编程，IO多路复用，epoll等等。 熟悉OSI五层网络模型，熟悉TCP&#x2F;IP,UDP,HTTP&#x2F;HTTPS,DNS等网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/bigstar.jpg">
+<meta property="article:published_time" content="2023-07-07T17:09:25.000Z">
+<meta property="article:modified_time" content="2023-08-30T13:31:40.589Z">
+<meta property="article:author" content="jhhuang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/bigstar.jpg"><link rel="shortcut icon" href="/img/yelloduck.jpg"><link rel="canonical" href="http://example.com/2023/07/08/eightpart/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++八股',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-30 21:31:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/bigstar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/sunset.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="jhhuangのblog"><span class="site-name">jhhuangのblog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++八股</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-07T17:09:25.000Z" title="发表于 2023-07-08 01:09:25">2023-07-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-30T13:31:40.589Z" title="更新于 2023-08-30 21:31:40">2023-08-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C-%E5%85%AB%E8%82%A1/">C++八股</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++八股"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="carl%E5%93%A5%E6%8E%A8%E8%8D%90%E7%9A%84c%2B%2B%E5%90%8E%E7%AB%AF%E9%80%9F%E6%88%90%E8%B7%AF%E7%BA%BF%2F%E7%AE%80%E5%8E%86%E5%86%99%E6%B3%95" tabindex="-1">carl哥推荐的C++后端速成路线/简历写法</h1>
+<ul>
+<li>熟悉C/C++，熟练使用C的指针应用及内存管理，C的封装继承多态，STL常用容器，C11常用特性(智能指针等) ，了解 Python，Gtest等。</li>
+<li>熟悉常用设计模式(单例模式，工厂模式等)</li>
+<li>熟悉Linux下vim开发环境，了解网络编程，IO多路复用，epoll等等。</li>
+<li>熟悉OSI五层网络模型，熟悉TCP/IP,UDP,HTTP/HTTPS,DNS等网络协议，熟悉TCP三次握手，四次挥手，流量控制，拥塞控制等手段。</li>
+<li>熟悉操作系统的进程通信、死锁、内存管理等知识。</li>
+<li>熟练使用MySQL，熟悉MySQL索引、事务、存储引擎、锁机制。</li>
+<li>熟悉常用的数据结构(链表、栈、队列、二叉树等)，熟练使用排序，贪心，动态规划等算法。</li>
+<li>熟悉Git，vscode工具使用。</li>
+</ul>
+<h2 id="c%E6%8C%87%E9%92%88%E5%BA%94%E7%94%A8%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86" tabindex="-1">C指针应用及内存管理</h2>
+<h3 id="%E6%8C%87%E9%92%88%E5%BA%94%E7%94%A8" tabindex="-1">指针应用</h3>
+<p>指针存放某个对象的地址，其本身就是变量，本身就有地址，所以有指向指针的指针；可变，包括其指向的地址的改变和其指向的地址中所存放的数据的改变。</p>
+<h3 id="%E5%BC%95%E7%94%A8%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E6%8B%93%E5%B1%95%EF%BC%89" tabindex="-1"><em>引用和指针的区别（拓展）</em></h3>
+<p>引用就就是变量的别名，从一而终，不可变，必须初始化。<br>
+不存在指向空值的引用，但是存在指向空值的指针。</p>
+<h2 id="%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86" tabindex="-1">内存管理</h2>
+<p>内存一般被划分为四个区：堆区、栈区、数据区、代码区。<br>
+堆区：堆从低地址向高地址增长，先进先出，存储局部变量、函数参数值。<br>
+栈区：栈从高地址向低地址增长，先进后出，动态申请内存用。<br>
+数据区：存放全局变量、静态变量、常量。<br>
+代码区：存放代码数据。</p>
+<h3 id="malloc%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98" tabindex="-1">malloc动态分配内存</h3>
+<ul>
+<li>malloc接收一个输入参数，表示所需分配内存的大小，以字节为单位。</li>
+<li>检查是否有足够的内存可供分配。</li>
+<li>如果有足够的可用内存，malloc会分配一块连续的内存空间，返回分配的内存块的起始地址，否则返回NULL。</li>
+</ul>
+<h3 id="new%E5%92%8Cmalloc%EF%BC%88%E6%8B%93%E5%B1%95%EF%BC%89" tabindex="-1"><em>new和malloc（拓展）</em></h3>
+<ul>
+<li>new内存分配失败，会抛出bac_alloc异常，不会返回NULL；而malloc分配失败会返回NULL。</li>
+<li>使用new申请内存无需指定内存块的大小，malloc需要显式指出所需内存的尺寸。</li>
+<li>new和delete可以重载，而malloc/free不允许重载。</li>
+<li>new/delete会调用对象的构造函数/析构函数来完成对象的构造/析构，而malloc不会初始化对象。</li>
+<li>malloc/free是C++/C语言的标准库函数，而new/delete是C++的运算符。</li>
+<li>new从自由存储区为对象动态分配内存空间，malloc在堆上动态分配空间。</li>
+</ul>
+<h2 id="c%2B%2B%E7%9A%84%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81" tabindex="-1">C++的封装、继承、多态</h2>
+<h3 id="%E7%BB%A7%E6%89%BF" tabindex="-1">继承</h3>
+<p>定义：让某种类型对象获得另一个类型对象的属性和方法。<br>
+功能：它可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。<br>
+常见继承的三种方式：</p>
+<ol>
+<li>实现继承：使用基类的属性和方法无需额外编写代码。</li>
+<li>接口继承：仅使用基类的属性和方法的名称，但是子类必须提供实现的能力（虚函数）。</li>
+<li>可视继承：指⼦窗体（类）使⽤基窗体（类）的外观和实现代码的能⼒。</li>
+</ol>
+<h3 id="%E5%B0%81%E8%A3%85" tabindex="-1">封装</h3>
+<p>定义：数据和代码捆绑在一起，避免外界干扰和不确定性访问。<br>
+功能：把客观事物封装成抽象的类，并且可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏，例如，公共的数据或方法使用public修饰，不希望被访问的数据或方法采用private修饰。</p>
+<h3 id="%E5%A4%9A%E6%80%81" tabindex="-1">多态</h3>
+<p>定义：同一事物表现出不同事物的能力，即向不同对象发送同一条消息，不同的对象在接收时会产生不同的行为（重载实现编译时的多态，虚函数实现运行时的多态）<br>
+功能：多态性是允许你将父对象设置成为和一个或更多的它的子对象相等的技术，赋值之后，父对象就可以根据当前赋值给它的子对象的特性以不同的方式运作；<br>
+简单一句话：允许将子类类型的指针赋值给父类类型的指针。允许用子类类型的变量去初始化父类类型的引用。<br>
+实现多态的两种方式：</p>
+<ol>
+<li>覆盖：指子类重新定义父类的虚函数的做法</li>
+<li>重载：指存在多个重名函数，而这些函数的参数表不同（体现在个数或类型上）</li>
+</ol>
+<h2 id="stl%E5%B8%B8%E7%94%A8%E5%AE%B9%E5%99%A8" tabindex="-1">STL常用容器</h2>
+<ul>
+<li>vector：动态数组，支持快速随机访问，可以在尾部高效地插入和删除元素。</li>
+<li>list：双向链表，支持在任意位置高效地插入和删除元素，但不支持随机访问。</li>
+<li>deque：双端队列，类似于动态数组，支持在两端高效地插入和删除元素。</li>
+<li>queue：队列，基于其他容器实现，支持先进先出（FIFO）的元素访问方式。</li>
+<li>stack：栈，基于其他容器实现，支持后进先出（LIFO）的元素访问方式。</li>
+<li>set：集合，存储唯一元素，自动按照一定顺序（默认是升序）组织元素。</li>
+<li>map：映射，存储键-值对，键是唯一的，按照键的一定顺序（默认是升序）组织元素。</li>
+<li>unordered_set：无序集合，类似于set，但不保证元素的顺序。</li>
+<li>unordered_map：无序映射，类似于map，但不保证元素的顺序。</li>
+<li>multiset：多重集合，允许存储多个相同值的元素。</li>
+<li>multimap：多重映射，允许存储多个相同键的键-值对。</li>
+</ul>
+<h2 id="%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88" tabindex="-1">智能指针</h2>
+<p>C<ins>中的智能指针是一种用于管理动态分配的内存资源的指针类型。它们帮助自动管理内存，避免内存泄漏和悬挂指针等问题。标准C</ins>库（std）提供了三种主要的智能指针类型：</p>
+<ol>
+<li>
+<p>std::unique_ptr：<br>
+std::shared_ptr是一种共享式智能指针。它允许多个 std::shared_ptr实例共享对同一个资源（堆上的对象）的所有权。资源会在最后一个std::shared_ptr实例销毁时释放。使用std::make_shared来创建。</p>
+<pre><code> #include &lt;memory&gt;
+ std::shared_ptr&lt;int&gt; ptr1 = std::make_shared&lt;int&gt;(42);
+ std::shared_ptr&lt;int&gt; ptr2 = ptr1; // 共享所有权
+</code></pre>
+</li>
+<li>
+<p>std::shared_ptr：<br>
+std::shared_ptr是一种共享式智能指针。它允许多个 std::shared_ptr实例共享对同一个资源（堆上的对象）的所有权。资源会在最后一个std::shared_ptr实例销毁时释放。使用std::make_shared来创建。</p>
+<pre><code> #include &lt;memory&gt;
+
+ std::shared_ptr&lt;int&gt; ptr1 = std::make_shared&lt;int&gt;(42);
+ std::shared_ptr&lt;int&gt; ptr2 = ptr1; // 共享所有权
+</code></pre>
+</li>
+<li>
+<p>std::weak_ptr：<br>
+std::weak_ptr也是一种共享式智能指针，但它并不增加资源的引用计数。它允许访问由std::shared_ptr管理的资源，但不会影响资源的所有权。通常用于避免std::shared_ptr之间的循环引用，从而防止内存泄漏。</p>
+<pre><code> #include &lt;memory&gt;
+
+ std::shared_ptr&lt;int&gt; sharedPtr = std::make_shared&lt;int&gt;(42);
+ std::weak_ptr&lt;int&gt; weakPtr = sharedPtr; // 不增加资源引用计数
+</code></pre>
+</li>
+</ol>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">jhhuang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/07/08/eightpart/">http://example.com/2023/07/08/eightpart/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">jhhuangのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/bigstar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/10/some-ip/" title="SOME/IP学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SOME/IP学习笔记</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/06/helloworld/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/bigstar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">jhhuang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#carl%E5%93%A5%E6%8E%A8%E8%8D%90%E7%9A%84c++%E5%90%8E%E7%AB%AF%E9%80%9F%E6%88%90%E8%B7%AF%E7%BA%BF/%E7%AE%80%E5%8E%86%E5%86%99%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">carl哥推荐的C++后端速成路线&#x2F;简历写法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#c%E6%8C%87%E9%92%88%E5%BA%94%E7%94%A8%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">C指针应用及内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%BA%94%E7%94%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">指针应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%92%8C%E6%8C%87%E9%92%88%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E6%8B%93%E5%B1%95%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">引用和指针的区别（拓展）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#malloc%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="toc-number">1.2.1.</span> <span class="toc-text">malloc动态分配内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new%E5%92%8Cmalloc%EF%BC%88%E6%8B%93%E5%B1%95%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">new和malloc（拓展）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c++%E7%9A%84%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81"><span class="toc-number">1.3.</span> <span class="toc-text">C++的封装、继承、多态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-number">1.3.1.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85"><span class="toc-number">1.3.2.</span> <span class="toc-text">封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%80%81"><span class="toc-number">1.3.3.</span> <span class="toc-text">多态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stl%E5%B8%B8%E7%94%A8%E5%AE%B9%E5%99%A8"><span class="toc-number">1.4.</span> <span class="toc-text">STL常用容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="toc-number">1.5.</span> <span class="toc-text">智能指针</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/09/vsomeipenvconfig/" title="vsomeip环境搭建+双机通讯">vsomeip环境搭建+双机通讯</a><time datetime="2023-08-09T01:24:43.000Z" title="发表于 2023-08-09 09:24:43">2023-08-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/08/day27/" title="代码随想录算法训练营day27(day28补) | 39.组合总和  40.组合总和II 131.分割回文串">代码随想录算法训练营day27(day28补) | 39.组合总和  40.组合总和II 131.分割回文串</a><time datetime="2023-08-07T23:12:50.000Z" title="发表于 2023-08-08 07:12:50">2023-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/07/day25/" title="代码随想录算法训练营day25(day27补) | 216.组合总和III 17.电话号码的字母组合">代码随想录算法训练营day25(day27补) | 216.组合总和III 17.电话号码的字母组合</a><time datetime="2023-08-07T00:14:47.000Z" title="发表于 2023-08-07 08:14:47">2023-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/07/day24/" title="代码随想录算法训练营day24(day27补) | 77.组合">代码随想录算法训练营day24(day27补) | 77.组合</a><time datetime="2023-08-06T22:58:46.000Z" title="发表于 2023-08-07 06:58:46">2023-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/03/day23/" title="代码随想录算法训练营day23 | 669.修剪二叉搜索树 108.将有序数组转换为二叉搜索树 538.把二叉搜索树转换为累加树">代码随想录算法训练营day23 | 669.修剪二叉搜索树 108.将有序数组转换为二叉搜索树 538.把二叉搜索树转换为累加树</a><time datetime="2023-08-03T15:07:26.000Z" title="发表于 2023-08-03 23:07:26">2023-08-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By jhhuang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
