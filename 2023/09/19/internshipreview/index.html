@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>实习总结 | jhhuangのblog</title><meta name="author" content="jhhuang"><meta name="copyright" content="jhhuang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="工作任务 任务一：基于SOME-IP协议，在双机上实现雷达数据服务的发布&#x2F;订阅与测试； 任务二：开发自动化配置脚本，实现在Veristand中自动化配置AFP（自动帧处理）通道接口，服务于仿真测试。 工作过程 任务一 1、跑通SOME-IP双机通信：学习以太网和SOME-IP相关知识，学习和了解SOME-IP源码中的发布&#x2F;订阅和请求&#x2F;响应两个模式的路由原理，了解配置文档中各个参数的意义，实现SOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实习总结">
+<meta property="og:url" content="http://example.com/2023/09/19/internshipreview/index.html">
+<meta property="og:site_name" content="jhhuangのblog">
+<meta property="og:description" content="工作任务 任务一：基于SOME-IP协议，在双机上实现雷达数据服务的发布&#x2F;订阅与测试； 任务二：开发自动化配置脚本，实现在Veristand中自动化配置AFP（自动帧处理）通道接口，服务于仿真测试。 工作过程 任务一 1、跑通SOME-IP双机通信：学习以太网和SOME-IP相关知识，学习和了解SOME-IP源码中的发布&#x2F;订阅和请求&#x2F;响应两个模式的路由原理，了解配置文档中各个参数的意义，实现SOM">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/bigstar.jpg">
+<meta property="article:published_time" content="2023-09-19T07:36:38.000Z">
+<meta property="article:modified_time" content="2023-09-23T02:31:28.097Z">
+<meta property="article:author" content="jhhuang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/bigstar.jpg"><link rel="shortcut icon" href="/img/yelloduck.jpg"><link rel="canonical" href="http://example.com/2023/09/19/internshipreview/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '实习总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-23 10:31:28'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/bigstar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/sunset.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="jhhuangのblog"><span class="site-name">jhhuangのblog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">实习总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-19T07:36:38.000Z" title="发表于 2023-09-19 15:36:38">2023-09-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-23T02:31:28.097Z" title="更新于 2023-09-23 10:31:28">2023-09-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/">实习收获</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="实习总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="%E5%B7%A5%E4%BD%9C%E4%BB%BB%E5%8A%A1" tabindex="-1">工作任务</h1>
+<p>任务一：基于SOME-IP协议，在双机上实现雷达数据服务的发布/订阅与测试；<br>
+任务二：开发自动化配置脚本，实现在Veristand中自动化配置AFP（自动帧处理）通道接口，服务于仿真测试。</p>
+<h1 id="%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B" tabindex="-1">工作过程</h1>
+<h2 id="%E4%BB%BB%E5%8A%A1%E4%B8%80" tabindex="-1">任务一</h2>
+<p>1、跑通SOME-IP双机通信：学习以太网和SOME-IP相关知识，学习和了解SOME-IP源码中的发布/订阅和请求/响应两个模式的路由原理，了解配置文档中各个参数的意义，实现SOME-IP双机通信。<br>
+2、优化服务端程序：基于发布/订阅服务端源码，将真实服务端相关信息写入配置文档和代码中，改进已序列化的VTD雷达数据报文，以SOME-IP协议提供雷达点云数据服务和状态数据服务；<br>
+3、开发消费端程序：基于发布/订阅消费端源码，将真实消费端相关信息写入配置文档和代码中，开发基于真实控制器信息的SOME-IP消费端通信仿真程序，实现雷达数据服务的发布/订阅；<br>
+4、测试雷达数据准确性：使用Wireshark对服务端提供的雷达数据抓包，将数据包导入RSView中实现对雷达数据的可视化测试；</p>
+<h2 id="%E4%BB%BB%E5%8A%A1%E4%BA%8C" tabindex="-1">任务二</h2>
+<p>1、开发数据筛选脚本：基于已解析的DBC文件中的所有数据，从中筛选用于设置AFP通道的相关数据，包括Message，Chks，Cntr，生成txt文档。<br>
+2、开发自动化配置脚本：基于上述生成的txt文档中的数据和用户的交互式输入修改XML文件，为指定Controller的指定CAN路下所需发送的Message添加其Chks和Cntr的同名User Channel并将其配置于此Message的AFP中，实现Veristand中AFP通道接口的自动化配置。</p>
+<h1 id="%E5%B7%A5%E4%BD%9C%E6%88%90%E6%9E%9C" tabindex="-1">工作成果</h1>
+<h2 id="%E6%88%90%E6%9E%9C%E4%B8%80" tabindex="-1">成果一</h2>
+<p>实现基于SOME-IP协议的真实控制器消费端的通信仿真，实现其和雷达数据服务端的信息交互，为雷达数据服务的测试提供了仿真渠道。</p>
+<h2 id="%E6%88%90%E6%9E%9C%E4%BA%8C" tabindex="-1">成果二</h2>
+<p>实现使用自动化配置脚本在Veristand中配置用户测试所需的AFP通道接口，极大地提高了仿真测试效率。</p>
+<h1 id="%E5%B7%A5%E4%BD%9C%E5%9B%9E%E9%A1%BE" tabindex="-1">工作回顾</h1>
+<p>1、SOME-IP出现的debug消息。虽然debug消息一般不会对通信以及功能实现产生影响，但是目前还未了解其出现的真正原因。现阶段读SOME-IP源码比较吃力，没有读透，例如路由注册的内部细节等等。<br>
+2、最初写AFP通道接口自动化配置脚本时虽然了解到存在XML解析库，但没有使用XML解析库，把问题想简单了，采用字符串处理函数来暴力实现相应的功能。但是随着需求增多后，代码难以修改，可拓展性差。之后去了解了tinyxml2库，并使用该库重写了代码，使用XML解析库使代码更规范化，可读性和可拓展性都大大提高。</p>
+<h1 id="%E4%B8%AA%E4%BA%BA%E6%94%B6%E8%8E%B7" tabindex="-1">个人收获</h1>
+<p>1、学习和了解了以太网各层的原理，了解了应用层网络协议SOME-IP，学会了使用SOME-IP来仿真通信服务端和消费端，学会了使用wireshark进行报文收发测试。<br>
+2、学会了使用C++中的tinyxml2库，python中的elementtree库来进行xml解析和修改。提高了和字符串处理相关的代码能力。</p>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">jhhuang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/09/19/internshipreview/">http://example.com/2023/09/19/internshipreview/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">jhhuangのblog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/bigstar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/09/17/day38/" title="代码随想录算法训练营day38 | 509.斐波那契数 70.爬楼梯"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">代码随想录算法训练营day38 | 509.斐波那契数 70.爬楼梯</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/bigstar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">jhhuang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">工作任务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">工作过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%B8%80"><span class="toc-number">2.1.</span> <span class="toc-text">任务一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E4%BA%8C"><span class="toc-number">2.2.</span> <span class="toc-text">任务二</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%88%90%E6%9E%9C"><span class="toc-number">3.</span> <span class="toc-text">工作成果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E6%9E%9C%E4%B8%80"><span class="toc-number">3.1.</span> <span class="toc-text">成果一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E6%9E%9C%E4%BA%8C"><span class="toc-number">3.2.</span> <span class="toc-text">成果二</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%9B%9E%E9%A1%BE"><span class="toc-number">4.</span> <span class="toc-text">工作回顾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E6%94%B6%E8%8E%B7"><span class="toc-number">5.</span> <span class="toc-text">个人收获</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/19/internshipreview/" title="实习总结">实习总结</a><time datetime="2023-09-19T07:36:38.000Z" title="发表于 2023-09-19 15:36:38">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/17/day38/" title="代码随想录算法训练营day38 | 509.斐波那契数 70.爬楼梯">代码随想录算法训练营day38 | 509.斐波那契数 70.爬楼梯</a><time datetime="2023-09-17T05:53:21.000Z" title="发表于 2023-09-17 13:53:21">2023-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/14/modifysdfreadme/" title="nivssdf文件修改脚本使用说明">nivssdf文件修改脚本使用说明</a><time datetime="2023-09-14T10:02:59.000Z" title="发表于 2023-09-14 18:02:59">2023-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/09/08/day28/" title="代码随想录算法训练营day28 | 93.复原IP地址 78.子集 90.子集II">代码随想录算法训练营day28 | 93.复原IP地址 78.子集 90.子集II</a><time datetime="2023-09-07T23:12:50.000Z" title="发表于 2023-09-08 07:12:50">2023-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/08/09/vsomeipenvconfig/" title="vsomeip环境搭建+双机通讯">vsomeip环境搭建+双机通讯</a><time datetime="2023-08-09T01:24:43.000Z" title="发表于 2023-08-09 09:24:43">2023-08-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By jhhuang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
